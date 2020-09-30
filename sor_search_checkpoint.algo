@@ -1,0 +1,29 @@
+PROCEDURE tri_insertion(VAR Tab: ARRAY_OF INTEGER[50])
+VAR
+    n,i,j,c:INTEGER;    
+BEGIN
+   n:=Tab.length-1;
+   FOR i FROM 1 TO n STEP i++  DO
+       c:=Tab[i];
+       j:=i;
+        WHILE (j>0 and Tab[j+1]>c) DO
+            Tab[j+1]:=Tab[j];
+             j:=j-1;
+             
+        END_WHILE
+       Tab[j-1]:=c;
+   END_FOR
+END
+ALGORITHM checkpoint
+VAR
+    arr: ARRAY_OF INTEGER [50];
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO arr.length-1 STEP i++ DO
+    read(arr[i]);
+    END_FOR
+    tri_insertion(arr[i]);
+    FOR i FROM 0 TO arr.length-1 STEP i++ DO
+    write(arr[i]);
+    END_FOR
+END
